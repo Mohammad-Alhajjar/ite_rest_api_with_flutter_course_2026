@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final profileModel = profileModelFromMap(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 ProfileModel profileModelFromMap(String str) => ProfileModel.fromMap(json.decode(str));

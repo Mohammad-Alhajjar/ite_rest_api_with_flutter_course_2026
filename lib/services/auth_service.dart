@@ -1,3 +1,4 @@
+import 'package:auth_example/core/config/di.dart';
 import 'package:auth_example/models/request_models/login_model.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,7 +18,9 @@ class AuthService {
       if (response.statusCode == 200) {
         print(response.data);
         // token = response.data["accessToken"];
-        storage.setString('token', response.data["accessToken"]);
+        // storage.setString('token', response.data["accessToken"]);
+        // ! using get_it
+        getIt.get<SharedPreferences>().setString('token', response.data["accessToken"]);
         print(token);
         return true;
       } else {
